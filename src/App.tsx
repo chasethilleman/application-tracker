@@ -34,16 +34,18 @@ function App() {
         offeredApplications={offeredApplications}
         rejectedApplications={rejectedApplications}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Form addApplication={addApplication} />
-        <div className="applications-list">
+        <div className="applications-list col-span-2">
           {applications.length > 0 ? (
-            applications.map((application, index) => (
-              <ApplicationCard
-                key={`${application.company}-${application.applicationDate}-${index}`}
-                {...application}
-              />
-            ))
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+              {applications.map((application, index) => (
+                <ApplicationCard
+                  key={`${application.company}-${application.applicationDate}-${index}`}
+                  {...application}
+                />
+              ))}
+            </div>
           ) : (
             <p>No applications found.</p>
           )}
