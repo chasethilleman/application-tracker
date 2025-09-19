@@ -6,6 +6,15 @@ type HeaderProps = {
   rejectedApplications: number;
 };
 
+function HeaderCard(props: { title: string; count: number }) {
+  return (
+    <div className="border rounded p-4 text-center grow">
+      <h1 className="text-2xl font-bold">{props.count}</h1>
+      <p>{props.title}</p>
+    </div>
+  );
+}
+
 export default function Header({
   totalApplications,
   appliedApplications,
@@ -16,26 +25,11 @@ export default function Header({
   return (
     <header className="header pt-4 pb-4 border-b mb-4 bg-white sticky top-0 z-10">
       <div className="stats flex gap-4">
-        <div className="border rounded p-4 text-center">
-          <h1 className="text-2xl font-bold">{totalApplications}</h1>
-          <p>Total Applications</p>
-        </div>
-        <div className="border rounded p-4 text-center">
-          <h1 className="text-2xl font-bold">{appliedApplications}</h1>
-          <p>Applied Applications</p>
-        </div>
-        <div className="border rounded p-4 text-center">
-          <h1 className="text-2xl font-bold">{interviewingApplications}</h1>
-          <p>Interviewing Applications</p>
-        </div>
-        <div className="border rounded p-4 text-center">
-          <h1 className="text-2xl font-bold">{offeredApplications}</h1>
-          <p>Offered Applications</p>
-        </div>
-        <div className="border rounded p-4 text-center">
-          <h1 className="text-2xl font-bold">{rejectedApplications}</h1>
-          <p>Rejected Applications</p>
-        </div>
+        <HeaderCard title="Total Applications" count={totalApplications} />
+        <HeaderCard title="Applied" count={appliedApplications} />
+        <HeaderCard title="Interviewing" count={interviewingApplications} />
+        <HeaderCard title="Offered" count={offeredApplications} />
+        <HeaderCard title="Rejected" count={rejectedApplications} />
       </div>
     </header>
   );
