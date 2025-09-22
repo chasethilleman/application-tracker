@@ -8,7 +8,7 @@ type HeaderProps = {
 
 function HeaderCard(props: { title: string; count: number }) {
   return (
-    <div className="border rounded p-4 text-center grow">
+    <div className="border border-gray-300 rounded p-4 text-center grow">
       <h1 className="text-2xl font-bold">{props.count}</h1>
       <p>{props.title}</p>
     </div>
@@ -23,7 +23,7 @@ export default function Header({
   rejectedApplications,
 }: HeaderProps) {
   return (
-    <header className="header pt-4 pb-4 border-b mb-4 bg-white sticky top-0 z-10">
+    <header className="header pt-4 pb-4 border-b border-gray-300 mb-4 bg-white sticky top-0 z-10">
       <div className="stats flex gap-4">
         <HeaderCard title="Total Applications" count={totalApplications} />
         <HeaderCard title="Applied" count={appliedApplications} />

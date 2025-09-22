@@ -3,12 +3,15 @@ import "./App.css";
 import Header from "./components/header";
 import Form, { type FormData } from "./components/form";
 import ApplicationCard from "./components/applicationCard";
+import Confetti from "react-confetti";
 
 function App() {
   const [applications, setApplications] = useState<FormData[]>([]);
+  const [confetti, setConfetti] = useState(false);
 
   function addApplication(application: FormData) {
     setApplications((prev) => [...prev, application]);
+    setConfetti(true);
   }
 
   const totalApplications = applications.length;
@@ -27,6 +30,7 @@ function App() {
 
   return (
     <>
+      {confetti && <Confetti numberOfPieces={100} />}
       <Header
         totalApplications={totalApplications}
         appliedApplications={appliedApplications}

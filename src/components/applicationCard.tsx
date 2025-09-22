@@ -13,7 +13,7 @@ type ApplicationCardProps = FormData;
 export default function ApplicationCard(props: ApplicationCardProps) {
   return (
     <>
-      <div className="application-card border rounded p-4 bg-white shadow text-left">
+      <div className="application-card border border-gray-300 rounded p-4 bg-white shadow text-left">
         <h2 className="text-xl font-bold flex items-center py-2">
           <Building className="mr-2" /> {props.company}
         </h2>
