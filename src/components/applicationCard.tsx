@@ -1,4 +1,4 @@
-import type { FormData } from "./form";
+import type { ApplicationRecord } from "../types";
 import {
   Building,
   Briefcase,
@@ -8,7 +8,7 @@ import {
   FileText,
 } from "lucide-react";
 
-type ApplicationCardProps = FormData;
+type ApplicationCardProps = ApplicationRecord;
 
 export default function ApplicationCard(props: ApplicationCardProps) {
   return (
@@ -31,13 +31,17 @@ export default function ApplicationCard(props: ApplicationCardProps) {
         </p>
         <p className="flex items-center py-1">
           <DollarSign className="mr-2" />
-          {props.salary}
+          {props.salary || "—"}
         </p>
         <p className="flex items-center py-1 break-all">
           <Link className="mr-2" />{" "}
-          <a href={props.link} target="_blank" rel="noopener noreferrer">
-            {props.link}
-          </a>
+          {props.link ? (
+            <a href={props.link} target="_blank" rel="noopener noreferrer">
+              {props.link}
+            </a>
+          ) : (
+            "No link provided"
+          )}
         </p>
         <p className="flex items-center py-1">
           <FileText className="mr-2" /> {props.notes}
